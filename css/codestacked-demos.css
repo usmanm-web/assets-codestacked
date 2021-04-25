@@ -1,0 +1,223 @@
+@font-face{
+    font-family: "Open Sans";
+    src: url("../fonts/open-sans/OpenSans-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+[title~="000webhost"],
+[title*="000webhost"]{
+    display: none !important;
+}
+a {
+    color: #3778cd;
+}
+.widget{
+    position: relative;
+}
+.hide{
+    display: none;
+}
+
+/******************************************************
+| Custom styles for website
+******************************************************/
+.error-heading{
+    font-size: 25px;
+}
+
+.content-outer, .region-inner {
+    max-width: 1024px;
+    margin: 0px auto;
+}
+
+.header-inner .section {
+    margin: 0 10px;
+    padding: 0px;
+}
+.widget .widget-content {
+    margin: 0 -10px;
+    padding: 10px 10px 0;
+}
+.header-column-right .widget-content{
+	text-align: right;
+	padding-top: 5px;
+}
+.ads-banner .widget-content {
+    padding-bottom: 10px !important;
+}
+.header-inner a {
+    display: inline-block !important;
+    margin-top: 8px;
+}
+.title-wrapper, .header-right {
+    width: 50%;
+    float: left;
+}
+.tabs-outer {
+    background: #006699;
+    color: #ffffff;
+    width: 100%;
+    display: table;
+}
+.tabs-outer.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 3;
+}
+.tabs-inner .section {
+    margin: 0px;
+    padding: 0px;
+}
+.tabs-inner .widget .widget-content {
+    margin: 0px;
+    padding: 0px 10px;
+}
+.widget ul {
+    padding: 0px;
+    margin: 0px;
+}
+.tabs .widget li {
+    padding: 0px;
+    margin: 0px;
+    float: left;
+    list-style: none;
+}
+.tabs-inner .widget li a {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 20px;
+    font: normal normal 14px Open Sans,Verdana, Arial;
+    color: #ffffff;
+}
+.main-nav .overlay{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+}
+.main-nav li a:hover {
+    background: #2288bb;
+}
+.main-nav li a.active {
+    background-color: #ED8934;
+}
+.main-nav .menu-bars {
+    float: right;
+    padding: 2px 5px;
+    font-size: 30px;
+    line-height: 0.8em;
+    cursor: pointer;
+    display: none;
+}
+.main-wrapper{
+    min-height: calc(100vh - 216px);
+    max-width: 1024px;
+    margin: 20px auto;
+    margin-top: 0px;
+}
+.main-wrapper .ads-banner {
+    margin: 0px 10px;
+    margin-bottom: 20px;
+    background: #ddd;
+    overflow: hidden;
+    height: 110px;
+}
+.main-wrapper .left-column,
+.main-wrapper .right-column{
+    width: calc(100% - 340px);
+    float:left;
+}
+.main-wrapper .right-column{
+    width: 340px;
+}
+.right-column .sidebar-widget{
+    width: 300px;
+    margin: 0px auto 20px auto;
+    background: #fff;
+    padding: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+.right-column .sidebar-widget.fixed {
+    position: fixed;
+    top: 53px;
+}
+.footer-wrapper {
+    color: #ffffff;
+    overflow: hidden;
+}
+footer {
+    background: #006699 none repeat scroll 0 0;
+}
+.footer-inner {
+    padding: 30px 15px;
+}
+.login-box{
+    background: #fff;
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+    margin: 0px auto;
+    box-shadow: 0px 0px 5px rgba(150,150,150,0.5);
+}
+.file-icon{
+    font-size: 25px;
+    line-height: 40px;
+}
+@media screen and (max-width: 767px){
+    .title-wrapper, .header-right {
+        width: 100%;
+    }
+    .title-wrapper, .header-right {
+        width: 100%;
+    }
+    .header-column-left #header-inner,
+    .header-column-right .widget-content{
+        text-align: center;
+    }
+    .main-wrapper .left-column,
+    .main-wrapper .right-column{
+        width: 100%;
+    }
+    .main-wrapper .right-column{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 560px){
+    .inner-menu .close{
+        background: #fff;
+        color: #006699;
+        padding: 12px;
+    }
+    .inner-menu{
+        position: fixed;
+        top: 0px;
+        left: -100%;
+        transition: left .2s;
+        width: 280px;
+        height: 100vh;
+        background: #006699;
+    }
+    .inner-menu.in{
+        left: 0;
+    }
+    .inner-menu li a{
+        border-bottom: 1px solid #2288bb;
+    }
+    .main-nav .menu-bars{
+        display:block;
+    }
+
+    .tabs .widget ul li{
+        float:none;
+    }
+    .tabs .widget ul li a{
+        display: block;
+    }
+    .tabs .widget ul li a.home{
+        display: inline-block;
+    }
+}
