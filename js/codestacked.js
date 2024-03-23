@@ -1,22 +1,15 @@
 /* global _$$ */
 
 window.addEventListener("load",function(){
-    run_fixed_elements();
     sh_highlightDocument();
     load_delayed_css();
 
-    _$$(window).on("scroll",function(){
-        run_fixed_elements();
-    },false);
-
-    _$$(".menu-bars").on("click",function(){
-        _$$(".main-nav > .inner-menu").addClass("in");
-        _$$(".main-nav > .overlay, .main-nav > .inner-menu > .close").removeClass("hide");
+    _$$(".main-navbar .navbar-toggler").on("click", function(){
+        _$$(".main-navbar .navbar-collapse").addClass("show");
     });
 
-    _$$(".inner-menu > .close, .main-nav > .overlay").on("click",function(){
-        _$$(".main-nav > .inner-menu").removeClass("in");
-        _$$(".main-nav > .overlay,.inner-menu > .close").addClass("hide");
+    _$$(".main-navbar .close, .main-navbar .overlay").on("click",function(){
+        _$$(".main-navbar .navbar-collapse").removeClass("show");
     });
 
     var url = window.location.href;
@@ -39,32 +32,6 @@ window.addEventListener("load",function(){
     });
 },false);
 
-var adsense_elem = _$$(".right-column #AdSense2");
-var adsense_pos = adsense_elem[0] !== undefined ? adsense_elem[0].offsetTop: 0;
-
-function run_fixed_elements() {
-    scroll_height = window.pageYOffset;
-    header_height = _$$("header")[0].clientHeight;
-    var nav_menu = _$$(".tabs-outer");
-    var main_section = _$$(".content-inner");
-    var nav_height = nav_menu[0].clientHeight;
-
-    if (scroll_height > header_height) {
-        nav_menu.addClass("fixed");
-        main_section.css({"margin-top":"55px"});
-    } else {
-        nav_menu.removeClass("fixed");
-        main_section.css({"margin-top":"0px"});
-    }
-
-    if ((window.innerWidth > 768) && (adsense_pos > 0)) {
-        if ((scroll_height + nav_height + 20) > adsense_pos) {
-            adsense_elem.addClass("fixed");
-        } else {
-            adsense_elem.removeClass("fixed");
-        }
-    }
-}
 function load_delayed_css(){
     let delayed_css = document.querySelector("#delayed-css");
     let delayed_placeholder = document.createElement("div");
