@@ -1513,6 +1513,19 @@ input[type="radio"].radio.radio-gray:after {
     font-weight: 900;
 }
 
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+
 .text-left{
     text-align: left;
 }
@@ -1544,6 +1557,10 @@ input[type="radio"].radio.radio-gray:after {
 
 .text-dark {
     color: var(--color-dark);
+}
+
+.text-black {
+    color: var(--color-black);
 }
 
 .text-gray {
@@ -1581,6 +1598,10 @@ input[type="radio"].radio.radio-gray:after {
     background-color: var(--color-dark);
 }
 
+.bg-black {
+    background-color: var(--color-black);
+}
+
 .bg-gray {
     background-color: var(--color-gray);
 }
@@ -1595,6 +1616,23 @@ input[type="radio"].radio.radio-gray:after {
 .border{
     border: 1px solid #dddddd;
 }
+
+.border-top{
+    border-top: 1px solid #dddddd;
+}
+
+.border-right{
+    border-right: 1px solid #dddddd;
+}
+
+.border-bottom{
+    border-bottom: 1px solid #dddddd;
+}
+
+.border-left{
+    border-left: 1px solid #dddddd;
+}
+
 .border-none{
     border: 0px;
 }
