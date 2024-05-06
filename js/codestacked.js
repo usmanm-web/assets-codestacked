@@ -12,17 +12,18 @@ window.addEventListener("load",function(){
         _$$(".main-navbar .navbar-collapse").removeClass("show");
     });
 
-    var url = window.location.href;
-    if (url.indexOf("label") != -1) {
+    let url = window.location.href;
+    if (url.indexOf("label") !== -1) {
         active_nav = url.split("/");
         active_nav = active_nav[active_nav.length - 1];
-        var active_elem = document.querySelector("." + active_nav);
+        
+        let active_elem = document.querySelector(".navbar-nav .nav-item ." + active_nav);
         if (active_elem) {
-            active_elem.className += " active";
+            active_elem.parentElement.classList.add("active");
         }
     }
     _$$(".popup-image").on("click",function(){
-        var image = this;
+        let image = this;
         _$$(".popup-image-container > .popup-inner-wrapper").append(image.outerHTML);
         _$$(".popup-image-container").show();
     });
