@@ -1,0 +1,108 @@
+body{
+    background: var(--color-body);
+    font-family: "Open Sans", Verdana, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.7;
+}
+a {
+    color: #3778cd;
+}
+
+/******************************************************
+| Custom styles for website
+******************************************************/
+.error-heading{
+    font-size: 25px;
+}
+
+.widget ul {
+    padding: 0;
+    margin: 0;
+}
+
+.main-navbar .overlay{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.main-navbar .collapse{
+    display: block;
+}
+
+.ads-banner {
+    margin-bottom: 20px;
+    background: #ddd;
+    overflow: hidden;
+    height: 110px;
+}
+
+.main{
+    min-height: calc(100vh - 200px);
+}
+
+.column-right .sidebar .widget{
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #dddddd;
+}
+
+.footer-wrapper {
+    color: var(--color-white);
+    overflow: hidden;
+}
+
+footer {
+    background-color: var(--color-blue);
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.login-box{
+    background: var(--color-white);
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px rgba(150,150,150,0.5);
+}
+.file-icon{
+    font-size: 25px;
+    line-height: 40px;
+}
+
+@media screen and (min-width: 768px){
+    .main .column-left{
+        flex: 1 0 0;
+        margin-right: -340px;
+        padding-right: 355px;
+    }
+    .main .column-right{
+        flex: 0 0 340px;
+        max-width: 340px;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .main-navbar .navbar-collapse .navbar-nav{
+        position: fixed;
+        inset-y: 0;
+        top: 0;
+        left: -100%;
+        transition: left .2s;
+        width: 280px;
+        height: 100vh;
+    }
+    .main-navbar .navbar-collapse.show .navbar-nav{
+        left: 0;
+    }
+    .main-navbar .navbar-collapse.show .overlay{
+        display: block;
+    }
+    .main-navbar .navbar-collapse li{
+        border-bottom: 1px solid var(--color-sky);
+    }
+}
