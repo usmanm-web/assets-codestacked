@@ -1,18 +1,18 @@
 body{
     background: var(--color-body);
     font-family: "Open Sans", Verdana, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: normal;
     font-style: normal;
-    line-height: 1.7;
+    line-height: 1.5;
 }
 a {
     color: #3778cd;
 }
 
-/******************************************************
+/*---------------------------------------------
 | Custom styles for website
-******************************************************/
+---------------------------------------------*/
 .error-heading{
     font-size: 25px;
 }
@@ -33,10 +33,10 @@ a {
 }
 
 .ads-banner {
-    margin-bottom: 20px;
     background: #ddd;
     overflow: hidden;
     height: 110px;
+    margin-bottom: 1rem;
 }
 
 .main{

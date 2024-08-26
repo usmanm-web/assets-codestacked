@@ -1,5 +1,7 @@
 /* global $$ */
 window.addEventListener("load", function(){
+    load_delayed_css();
+
     $$(".main-navbar .navbar-toggler").on("click", function(){
         $$(".main-navbar .navbar-collapse").addClass("show");
     });
@@ -20,8 +22,9 @@ window.addEventListener("load", function(){
     });
 
     $$(".delete-demo").on("click",function(){
-        var demo_id = $$(this).data("demo_id");
-        var row = $$(this).closest("tr");
+        let demo_id = $$(this).data("demo_id");
+        let row = $$(this).closest("tr");
+
         $$.ajax({
             url:BASE_URL + "/ajax-functions.php",
             type: "POST",
@@ -30,8 +33,8 @@ window.addEventListener("load", function(){
                 action:"delete-demo"
             },
             success:function(res,xhr,status){
-                var data = JSON.parse(res);
-                if(data.status == 'success'){
+                let data = JSON.parse(res);
+                if(data.status === 'success'){
                     row.fadeOut();
                 }
             }
@@ -39,29 +42,12 @@ window.addEventListener("load", function(){
     });
 });
 
-var adsense_elem = $$(".right-column .sidebar-widget");
-var adsense_pos = adsense_elem[0] !== undefined ? adsense_elem[0].offsetTop: 0;
+function load_delayed_css(){
+    let delayed_css = document.querySelector("#delayed-css");
+    let delayed_placeholder = document.createElement("div");
 
-function run_fixed_elements() {
-    sHeight = window.pageYOffset;
-    headerHeight = $$("header")[0].clientHeight;
-    var nav_menu = $$(".tabs-outer");
-    var main_section = $$(".main-wrapper");
-    var nav_height = nav_menu[0].clientHeight;
+    delayed_placeholder.innerHTML = delayed_css.textContent;
 
-    if (sHeight > headerHeight) {
-        nav_menu.addClass("fixed");
-        main_section.css({"margin-top":"35px"});
-    } else {
-        nav_menu.removeClass("fixed");
-        main_section.css({"margin-top":"0px"});
-    }
-
-    if ((window.innerWidth > 768) && (adsense_pos > 0)) {
-        if ((sHeight + nav_height + 20) > adsense_pos) {
-            adsense_elem.addClass("fixed");
-        } else {
-            adsense_elem.removeClass("fixed");
-        }
-    }
+    document.head.insertBefore(delayed_placeholder, delayed_css)
+    delayed_css.parentElement.removeChild(delayed_css);
 }
