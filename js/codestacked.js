@@ -31,6 +31,7 @@ window.addEventListener("load",function(){
         $$(".popup-image-container > .popup-inner-wrapper").append(image.outerHTML);
         $$(".popup-image-container").show();
     });
+
     $$(".popup-image-container > .close").on("click", function(){
         $$(".popup-image-container").hide();
         $$(".popup-image-container img").remove();

@@ -69,7 +69,7 @@ img {
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5;
 }
 
@@ -1162,6 +1162,15 @@ input[type="radio"].radio.radio-gray:after {
 }
 .btn-red:hover {
     background-color: var(--color-red-dark);
+}
+
+.btn-sky {
+    background-color: var(--color-sky);
+    border: 1px solid var(--color-sky-dark);
+    color: var(--color-white);
+}
+.btn-sky:hover {
+    background-color: var(--color-sky-dark);
 }
 
 /*---------------------------------------------
