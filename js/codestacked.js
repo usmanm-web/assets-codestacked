@@ -42,17 +42,20 @@ function load_delayed_css(){
     let delayed_css = document.querySelector("#delayed-css");
     let delayed_placeholder = document.createElement("div");
 
-    delayed_placeholder.innerHTML = delayed_css.textContent;
+    delayed_placeholder.innerHTML = delayed_css.innerHTML;
 
-    document.head.insertBefore(delayed_placeholder, delayed_css)
+    document.head.insertBefore(delayed_placeholder, delayed_css);
+
     delayed_css.parentElement.removeChild(delayed_css);
 }
+
 function load_delayed_js(){
     let delayed_js = document.querySelector("#delayed-js");
     let delayed_placeholder = document.createElement("div");
 
     delayed_placeholder.innerHTML = delayed_js.textContent;
 
-    document.head.insertBefore(delayed_placeholder, delayed_js)
+    document.head.insertBefore(delayed_placeholder, delayed_js);
+
     delayed_js.parentElement.removeChild(delayed_js);
 }

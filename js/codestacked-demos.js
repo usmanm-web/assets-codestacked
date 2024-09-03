@@ -1,6 +1,7 @@
 /* global $$ */
 window.addEventListener("load", function(){
     load_delayed_css();
+    load_delayed_js();
 
     $$(".main-navbar .navbar-toggler").on("click", function(){
         $$(".main-navbar .navbar-collapse").addClass("show");
@@ -46,8 +47,28 @@ function load_delayed_css(){
     let delayed_css = document.querySelector("#delayed-css");
     let delayed_placeholder = document.createElement("div");
 
+    if(!delayed_css){
+        return;
+    }
+
     delayed_placeholder.innerHTML = delayed_css.textContent;
 
-    document.head.insertBefore(delayed_placeholder, delayed_css)
+    document.head.insertBefore(delayed_placeholder, delayed_css);
+
     delayed_css.parentElement.removeChild(delayed_css);
+}
+
+function load_delayed_js(){
+    let delayed_js = document.querySelector("#delayed-js");
+    let delayed_placeholder = document.createElement("div");
+
+    if(!delayed_js){
+        return;
+    }
+
+    delayed_placeholder.innerHTML = delayed_js.textContent;
+
+    document.head.insertBefore(delayed_placeholder, delayed_js);
+
+    delayed_js.parentElement.removeChild(delayed_js);
 }

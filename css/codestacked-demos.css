@@ -13,6 +13,20 @@ a {
 /*---------------------------------------------
 | Custom styles for website
 ---------------------------------------------*/
+.file-input-wrapper {
+    background: #666;
+    padding: 4px 10px;
+    cursor: pointer;
+    border: 1px solid #444;
+    max-width: 100px;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    color: var(--color-white);
+}
+
 .error-heading{
     font-size: 25px;
 }
@@ -68,6 +82,7 @@ footer {
     margin: 0 auto;
     box-shadow: 0 0 5px rgba(150,150,150,0.5);
 }
+
 .file-icon{
     font-size: 25px;
     line-height: 40px;
