@@ -61,7 +61,7 @@ function load_delayed_css(){
     delayed_css.parentElement.removeChild(delayed_css);
 }
 
-function load_no_script_delayed_js(node){
+function load_no_script_delayed_js(){
     let delayed_js = document.querySelector("#delayed-js");
 
     if(!delayed_js){
@@ -86,7 +86,7 @@ function load_no_script_delayed_js(node){
     delayed_js.remove();
 }
 
-function load_scripts_delayed_js(node){
+function load_scripts_delayed_js(){
     let delayed_scripts = document.querySelectorAll("script[type^='delayed-']");
 
     for(let delayed_script of delayed_scripts){
