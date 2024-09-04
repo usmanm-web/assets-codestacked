@@ -5,7 +5,7 @@ window.addEventListener("load",function(){
     load_delayed_css();
 
     setTimeout(() => {
-        load_no_script_delayed_js();
+        //load_no_script_delayed_js();
     }, 1000);
 
     $$(".main-navbar .navbar-toggler").on("click", function(){
