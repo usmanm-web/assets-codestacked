@@ -3,8 +3,8 @@ window.addEventListener("load", function(){
     load_delayed_css();
 
     setTimeout(() => {
-        //load_no_script_delayed_js();
-    }, 1000);
+        load_no_script_delayed_js();
+    }, 3000);
 
     $$(".main-navbar .navbar-toggler").on("click", function(){
         $$(".main-navbar .navbar-collapse").addClass("show");
