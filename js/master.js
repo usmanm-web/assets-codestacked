@@ -120,10 +120,11 @@
             return this.each(function(ob){
                 if(html){
                     this.innerHTML = html;
-                    var scripts = $$(this).find("script");
+                    let  scripts = $$(this).find("script");
+
                     $$(this).find("script").each(function(ob,item){
                         if(this instanceof NodeList){
-                           for(i=0 ; i < this.length; i++){
+                           for(let i= 0; i < this.length; i++){
                                eval(this[i].text);
                            }
                         }else{
