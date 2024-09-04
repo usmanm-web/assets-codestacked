@@ -1,7 +1,10 @@
 /* global $$ */
 window.addEventListener("load", function(){
     load_delayed_css();
-    load_delayed_js();
+
+    setTimeout(() => {
+        load_no_script_delayed_js();
+    }, 500);
 
     $$(".main-navbar .navbar-toggler").on("click", function(){
         $$(".main-navbar .navbar-collapse").addClass("show");
@@ -58,17 +61,44 @@ function load_delayed_css(){
     delayed_css.parentElement.removeChild(delayed_css);
 }
 
-function load_delayed_js(){
+function load_no_script_delayed_js(node){
     let delayed_js = document.querySelector("#delayed-js");
-    let delayed_placeholder = document.createElement("div");
 
     if(!delayed_js){
         return;
     }
 
-    delayed_placeholder.innerHTML = delayed_js.textContent;
+    let parser = new DOMParser();
+    let delayed_js_parsed = parser.parseFromString(delayed_js.innerHTML, 'text/html');
 
-    document.head.insertBefore(delayed_placeholder, delayed_js);
+    for(let delayed_script of delayed_js_parsed.querySelectorAll('script')){
+        let script = document.createElement("script");
 
-    delayed_js.parentElement.removeChild(delayed_js);
+        Array.from(delayed_script.attributes).forEach(attribute => {
+            script.setAttribute(attribute.name, attribute.value);
+        });
+
+        script.textContent = delayed_script.textContent;
+
+        delayed_js.parentElement.insertBefore(script.cloneNode(true), delayed_js);
+    }
+
+    delayed_js.remove();
+}
+
+function load_scripts_delayed_js(node){
+    let delayed_scripts = document.querySelectorAll("script[type^='delayed-']");
+
+    for(let delayed_script of delayed_scripts){
+        delayed_script.type = delayed_script.type.replace("delayed-", "");
+
+        /*let script = document.createElement("script");
+
+        Array.from(delayed_script.attributes).forEach(attribute => {
+            script.setAttribute(attribute.name, attribute.value);
+        });*/
+
+        delayed_script.parentElement.insertBefore(delayed_script.cloneNode(true), delayed_script);
+        delayed_script.parentElement.removeChild(delayed_script);
+    }
 }
