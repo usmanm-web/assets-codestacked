@@ -42,6 +42,10 @@ function load_delayed_css(){
     let delayed_css = document.querySelector("#delayed-css");
     let delayed_placeholder = document.createElement("div");
 
+    if(!delayed_css){
+        return;
+    }
+
     delayed_placeholder.innerHTML = delayed_css.innerHTML;
 
     document.head.insertBefore(delayed_placeholder, delayed_css);
@@ -52,6 +56,10 @@ function load_delayed_css(){
 function load_delayed_js(){
     let delayed_js = document.querySelector("#delayed-js");
     let delayed_placeholder = document.createElement("div");
+
+    if(!delayed_js){
+        return;
+    }
 
     delayed_placeholder.innerHTML = delayed_js.textContent;
 
