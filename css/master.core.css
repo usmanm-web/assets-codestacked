@@ -39,7 +39,7 @@
     --color-light: #d1d5db;
     --color-white: #ffffff;
     --color-body: #f4f4f4;
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -69,6 +69,17 @@ body {
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+[type="button"], [type="reset"], [type="submit"], button {
+    -webkit-appearance: button;
 }
 
 a {
@@ -764,11 +775,11 @@ img {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: var(--color-black);
     text-align: center;
     white-space: nowrap;
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-light);
     border-radius: 0.25rem;
 }
 
@@ -958,7 +969,7 @@ input[type="radio"].radio.radio-gray:after {
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
     overflow-y: auto;
-    z-index: 6;
+    z-index: 999;
 }
 
 .modal-box {
@@ -968,6 +979,7 @@ input[type="radio"].radio.radio-gray:after {
     box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.3);
     animation: slideDown 0.4s;
     position: relative;
+    background-color: var(--color-white);
 }
 
 .modal-header {
@@ -976,9 +988,7 @@ input[type="radio"].radio.radio-gray:after {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1rem;
-    border-bottom: 1px solid #dee2e6;
-    border-top-left-radius: calc(.3rem - 1px);
-    border-top-right-radius: calc(.3rem - 1px);
+    border-bottom: 1px solid var(--color-light);
 }
 
 .modal-title {
@@ -986,50 +996,30 @@ input[type="radio"].radio.radio-gray:after {
     line-height: 1.5;
 }
 
+.modal-black .modal-box {
+    border: 1px solid var(--color-black);
+}
+.modal-black .modal-header {
+    background-color: var(--color-black);
+}
+
 .modal-blue .modal-box {
     border: 1px solid var(--color-blue);
 }
-
 .modal-blue .modal-header {
     background-color: var(--color-blue);
 }
 
-.modal-indigo .modal-box {
-    border: 1px solid var(--color-indigo);
+.modal-cyan .modal-box {
+    border: 1px solid var(--color-cyan);
 }
-
-.modal-indigo .modal-header {
-    background-color: var(--color-indigo);
-}
-
-.modal-green .modal-box {
-    border: 1px solid #5cb85c;
-}
-
-.modal-green .modal-header {
-    background-color: #5cb85c;
-}
-
-.modal-red .modal-box {
-    border: 1px solid var(--color-red);
-}
-
-.modal-red .modal-header {
-    background-color: var(--color-red);
-}
-
-.modal-orange .modal-box {
-    border: 1px solid var(--color-orange);
-}
-
-.modal-orange .modal-header {
-    background-color: var(--color-orange);
+.modal-cyan .modal-header {
+    background-color: var(--color-cyan);
 }
 
 .modal-dark .modal-box {
     border: 1px solid var(--color-dark);
 }
-
 .modal-dark .modal-header {
     background-color: var(--color-dark);
 }
@@ -1037,14 +1027,41 @@ input[type="radio"].radio.radio-gray:after {
 .modal-gray .modal-box {
     border: 1px solid var(--color-gray);
 }
-
 .modal-gray .modal-header {
     background-color: var(--color-gray);
 }
 
+.modal-green .modal-box {
+    border: 1px solid var(--color-green);
+}
+.modal-green .modal-header {
+    background-color: var(--color-green);
+}
+
+.modal-indigo .modal-box {
+    border: 1px solid var(--color-indigo);
+}
+.modal-indigo .modal-header {
+    background-color: var(--color-indigo);
+}
+
+.modal-orange .modal-box {
+    border: 1px solid var(--color-orange);
+}
+.modal-orange .modal-header {
+    background-color: var(--color-orange);
+}
+
+.modal-red .modal-box {
+    border: 1px solid var(--color-red);
+}
+.modal-red .modal-header {
+    background-color: var(--color-red);
+}
+
 .modal-content {
     padding: 20px;
-    background: #FFF;
+    background: var(--color-white);
 }
 
 /*---------------------------------------------
@@ -1058,7 +1075,7 @@ input[type="radio"].radio.radio-gray:after {
 .table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 .table-bordered, .table-bordered > thead > tr > th,
@@ -1088,58 +1105,59 @@ input[type="radio"].radio.radio-gray:after {
     transition: opacity 0.5s;
 }
 
+.alert-black {
+    background-color: var(--color-black);
+    border: 1px solid var(--color-black-dark);
+    color: var(--color-white);
+}
 .alert-blue {
     background-color: var(--color-blue);
     border: 1px solid var(--color-blue-dark);
     color: var(--color-white);
 }
-
-.alert-green {
-    background-color: var(--color-green);
-    border: 1px solid var(--color-green-dark);
+.alert-cyan {
+    background-color: var(--color-cyan);
+    border: 1px solid var(--color-cyan-dark);
     color: var(--color-white);
 }
-
-.alert-red {
-    background-color: var(--color-red);
-    border: 1px solid var(--color-red-dark);
-    color: var(--color-white);
-}
-
-.alert-orange {
-    background-color: var(--color-orange);
-    border: 1px solid var(--color-orange-dark);
-    color: var(--color-white);
-}
-
 .alert-dark {
     background-color: var(--color-dark);
     border: 1px solid var(--color-dark);
     color: var(--color-white);
 }
-
-.alert-black {
-    background-color: var(--color-black);
-    border: 1px solid var(--color-black);
-    color: var(--color-white);
-}
-
 .alert-gray {
     background-color: var(--color-gray);
     border: 1px solid var(--color-gray-dark);
 }
-
+.alert-green {
+    background-color: var(--color-green);
+    border: 1px solid var(--color-green-dark);
+    color: var(--color-white);
+}
+.alert-indigo {
+    background-color: var(--color-indigo);
+    border: 1px solid var(--color-indigo-dark);
+    color: var(--color-white);
+}
+.alert-orange {
+    background-color: var(--color-orange);
+    border: 1px solid var(--color-orange-dark);
+    color: var(--color-white);
+}
+.alert-red {
+    background-color: var(--color-red);
+    border: 1px solid var(--color-red-dark);
+    color: var(--color-white);
+}
 .alert-sky {
     background-color: var(--color-sky);
     border: 1px solid var(--color-sky-dark);
     color: var(--color-white);
 }
-
 .alert-white {
     background-color: var(--color-white);
     border: 1px solid var(--color-light);
 }
-
 .alert-dismissible {
     padding-right: 4rem;
 }
@@ -1159,29 +1177,32 @@ input[type="radio"].radio.radio-gray:after {
 .note-black {
     border-left: 5px solid var(--color-black);
 }
-
 .note-blue {
     border-left: 5px solid var(--color-blue);
 }
-
+.note-cyan {
+    border-left: 5px solid var(--color-cyan);
+}
+.note-dark {
+    border-left: 5px solid var(--color-dark);
+}
 .note-gray {
     border-left: 5px solid var(--color-gray);
 }
-
 .note-green {
     border-left: 5px solid var(--color-green);
 }
-
 .note-indigo {
     border-left: 5px solid var(--color-indigo);
 }
-
 .note-orange {
     border-left: 5px solid var(--color-orange);
 }
-
 .note-red {
     border-left: 5px solid var(--color-red);
+}
+.note-sky {
+    border-left: 5px solid var(--color-sky);
 }
 
 .note-dismissible {
@@ -1189,15 +1210,15 @@ input[type="radio"].radio.radio-gray:after {
 }
 
 .close {
-    font-size: 1.5rem;
-    line-height: 1;
+    box-sizing: content-box;
     cursor: pointer;
     font-weight: 700;
     border: 0;
     appearance: none;
     -webkit-appearance: none;
-    float: right;
-    padding: .75rem 1.25rem;
+    padding: .5rem .5rem;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+    opacity: 0.8;
 }
 
 .alert .close,
@@ -1225,16 +1246,16 @@ input[type="radio"].radio.radio-gray:after {
     padding: 0.5rem 0.75rem;
     margin-left: -1px;
     line-height: 1.25;
-    color: #007bff;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
+    color: var(--color-blue);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-light);
 }
 
 .page-link:hover {
-    color: #0056b3;
+    color: var(--color-blue);
     text-decoration: none;
-    background-color: #e9ecef;
-    border-color: #dee2e6;
+    background-color: var(--color-light);
+    border-color: var(--color-blue);
 }
 
 .page-link:focus {
@@ -1260,17 +1281,17 @@ input[type="radio"].radio.radio-gray:after {
 
 .page-item.active .page-link {
     z-index: 1;
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    border-color: var(--color-blue);
 }
 
 .page-item.disabled .page-link {
-    color: #6c757d;
+    color: var(--color-gray);
     pointer-events: none;
     cursor: auto;
-    background-color: #fff;
-    border-color: #dee2e6;
+    background-color: var(--color-white);
+    border-color: var(--color-light);
 }
 
 .pagination-lg .page-link {
@@ -1312,20 +1333,11 @@ input[type="radio"].radio.radio-gray:after {
     display: inline-block;
     padding: .375rem .75rem;
     cursor: pointer;
+    font-size: inherit;
 }
 
 .btn-block {
     width: 100%;
-}
-
-.btn-light {
-    background-color: var(--color-lighter);
-    border: 1px solid var(--color-light);
-    color: var(--color-black);
-}
-
-.btn-light:hover {
-    background-color: var(--color-light);
 }
 
 .btn-black {
@@ -1333,7 +1345,6 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-black-dark);
     color: var(--color-white);
 }
-
 .btn-black:hover {
     background-color: var(--color-black-dark);
 }
@@ -1343,9 +1354,26 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-blue-dark);
     color: var(--color-white);
 }
-
 .btn-blue:hover {
     background-color: var(--color-blue-dark);
+}
+
+.btn-cyan {
+    background-color: var(--color-cyan);
+    border: 1px solid var(--color-cyan-dark);
+    color: var(--color-white);
+}
+.btn-cyan:hover {
+    background-color: var(--color-cyan-dark);
+}
+
+.btn-dark {
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+    color: var(--color-white);
+}
+.btn-dark:hover {
+    background-color: var(--color-dark);
 }
 
 .btn-gray {
@@ -1353,7 +1381,6 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-gray-dark);
     color: var(--color-white);
 }
-
 .btn-gray:hover {
     background-color: var(--color-gray-dark);
 }
@@ -1363,7 +1390,6 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-green-dark);
     color: var(--color-white);
 }
-
 .btn-green:hover {
     background-color: var(--color-green-dark);
 }
@@ -1373,9 +1399,17 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-indigo-dark);
     color: var(--color-white);
 }
-
 .btn-indigo:hover {
     background-color: var(--color-indigo-dark);
+}
+
+.btn-light {
+    background-color: var(--color-lighter);
+    border: 1px solid var(--color-light);
+    color: var(--color-black);
+}
+.btn-light:hover {
+    background-color: var(--color-light);
 }
 
 .btn-orange {
@@ -1383,7 +1417,6 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-orange-dark);
     color: var(--color-white);
 }
-
 .btn-orange:hover {
     background-color: var(--color-orange-dark);
 }
@@ -1393,7 +1426,6 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-red-dark);
     color: var(--color-white);
 }
-
 .btn-red:hover {
     background-color: var(--color-red-dark);
 }
@@ -1403,7 +1435,6 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-sky-dark);
     color: var(--color-white);
 }
-
 .btn-sky:hover {
     background-color: var(--color-sky-dark);
 }
@@ -1422,15 +1453,33 @@ input[type="radio"].radio.radio-gray:after {
     border: 1px solid var(--color-gray);
 }
 
+.badge-black {
+    background-color: var(--color-black);
+    border: 1px solid var(--color-black-dark);
+    color: var(--color-white);
+}
+
 .badge-blue {
     background-color: var(--color-blue);
     border: 1px solid var(--color-blue-dark);
     color: var(--color-white);
 }
 
-.badge-indigo {
-    background-color: var(--color-indigo);
-    border: 1px solid var(--color-indigo-dark);
+.badge-cyan {
+    background-color: var(--color-cyan);
+    border: 1px solid var(--color-cyan-dark);
+    color: var(--color-white);
+}
+
+.badge-dark {
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-dark);
+    color: var(--color-white);
+}
+
+.badge-gray {
+    background-color: var(--color-cyan);
+    border: 1px solid var(--color-cyan-dark);
     color: var(--color-white);
 }
 
@@ -1440,9 +1489,9 @@ input[type="radio"].radio.radio-gray:after {
     color: var(--color-white);
 }
 
-.badge-red {
-    background-color: var(--color-red);
-    border: 1px solid var(--color-red-dark);
+.badge-indigo {
+    background-color: var(--color-indigo);
+    border: 1px solid var(--color-indigo-dark);
     color: var(--color-white);
 }
 
@@ -1452,15 +1501,15 @@ input[type="radio"].radio.radio-gray:after {
     color: var(--color-white);
 }
 
-.badge-black {
-    background-color: var(--color-black);
-    border: 1px solid var(--color-black-dark);
+.badge-red {
+    background-color: var(--color-red);
+    border: 1px solid var(--color-red-dark);
     color: var(--color-white);
 }
 
-.badge-gray {
-    background-color: var(--color-gray);
-    border: 1px solid var(--color-gray-dark);
+.badge-sky {
+    background-color: var(--color-sky);
+    border: 1px solid var(--color-sky-dark);
     color: var(--color-white);
 }
 
@@ -2280,36 +2329,48 @@ input[type="radio"].radio.radio-gray:after {
     text-align: center;
 }
 
+.text-black {
+    color: var(--color-black);
+}
+
 .text-blue {
     color: var(--color-blue);
 }
 
-.text-indigo {
-    color: var(--color-indigo);
-}
-
-.text-green {
-    color: var(--color-green);
-}
-
-.text-red {
-    color: var(--color-red);
-}
-
-.text-orange {
-    color: var(--color-orange);
+.text-cyan {
+    color: var(--color-cyan);
 }
 
 .text-dark {
     color: var(--color-dark);
 }
 
-.text-black {
-    color: var(--color-black);
-}
-
 .text-gray {
     color: var(--color-gray);
+}
+
+.text-green {
+    color: var(--color-green);
+}
+
+.text-indigo {
+    color: var(--color-indigo);
+}
+
+.text-light {
+    color: var(--color-light);
+}
+
+.text-orange {
+    color: var(--color-orange);
+}
+
+.text-red {
+    color: var(--color-red);
+}
+
+.text-sky {
+    color: var(--color-sky);
 }
 
 .text-white {
@@ -2319,91 +2380,91 @@ input[type="radio"].radio.radio-gray:after {
 /*---------------------------------------------
 | Background colors
 ---------------------------------------------*/
+.bg-black {
+    background-color: var(--color-black);
+}
+
 .bg-blue {
     background-color: var(--color-blue);
 }
 
-.bg-indigo {
-    background-color: var(--color-indigo);
-}
-
-.bg-green {
-    background-color: var(--color-green);
-}
-
-.bg-red {
-    background-color: var(--color-red);
-}
-
-.bg-orange {
-    background-color: var(--color-orange);
+.bg-cyan {
+    background-color: var(--color-cyan);
 }
 
 .bg-dark {
     background-color: var(--color-dark);
 }
 
-.bg-black {
-    background-color: var(--color-black);
-}
-
 .bg-gray {
     background-color: var(--color-gray);
 }
 
-.bg-white {
-    background-color: var(--color-white);
+.bg-green {
+    background-color: var(--color-green);
+}
+
+.bg-indigo {
+    background-color: var(--color-indigo);
 }
 
 .bg-light {
     background-color: var(--color-light);
 }
 
+.bg-orange {
+    background-color: var(--color-orange);
+}
+
+.bg-red {
+    background-color: var(--color-red);
+}
+
+.bg-sky {
+    background-color: var(--color-sky);
+}
+
+.bg-white {
+    background-color: var(--color-white);
+}
+
 /*---------------------------------------------
 | Borders
 ---------------------------------------------*/
 .border {
-    border: 1px solid #dddddd;
+    border: 1px solid var(--color-light);
 }
 
 .border-top {
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid var(--color-light);
 }
 
 .border-right {
-    border-right: 1px solid #dddddd;
+    border-right: 1px solid var(--color-light);
 }
 
 .border-bottom {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid var(--color-light);
 }
 
 .border-left {
-    border-left: 1px solid #dddddd;
+    border-left: 1px solid var(--color-light);
 }
 
 .border-none {
     border: 0;
 }
 
+.border-black {
+    border-color: var(--color-black);
+}
+
 .border-blue {
     border-color: var(--color-blue);
 }
 
-.border-indigo {
-    border-color: var(--color-indigo);
-}
-
-.border-green {
-    border-color: var(--color-green);
-}
-
-.border-red {
-    border-color: var(--color-red);
-}
-
-.border-orange {
-    border-color: var(--color-orange);
+.border-cyan {
+    border-color: var(--color-cyan);
 }
 
 .border-dark {
@@ -2412,6 +2473,26 @@ input[type="radio"].radio.radio-gray:after {
 
 .border-gray {
     border-color: var(--color-gray);
+}
+
+.border-green {
+    border-color: var(--color-green);
+}
+
+.border-indigo {
+    border-color: var(--color-indigo);
+}
+
+.border-orange {
+    border-color: var(--color-orange);
+}
+
+.border-red {
+    border-color: var(--color-red);
+}
+
+.border-sky {
+    border-color: var(--color-sky);
 }
 
 .border-white {
