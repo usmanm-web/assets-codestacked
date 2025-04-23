@@ -16,7 +16,7 @@
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         width: auto;
-        max-width: none;
+        max-width: 100%;
     }
 
     .md-col-1 {
